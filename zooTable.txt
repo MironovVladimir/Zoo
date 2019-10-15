@@ -1,0 +1,134 @@
+
+[
+
+	{
+
+		"name":"John",
+
+		"state":"IDLE",
+
+		"type":"Wolf"
+
+	},
+
+	{
+
+		"name":"Rick",
+
+		"state":"IDLE",
+
+		"type":"Wolf"
+
+	},
+
+	{
+
+		"name":"Rolf",
+
+		"state":"IDLE",
+
+		"type":"Wolf"
+
+	},
+
+	{
+
+		"name":"Kolin",
+
+		"state":"IDLE",
+
+		"type":"Wolf"
+
+	},
+
+	{
+
+		"name":"Aoshi",
+
+		"state":"IDLE",
+
+		"type":"Wolf"
+
+	},
+
+	{
+
+		"name":"Lida",
+
+		"state":"SLEEPING",
+
+		"type":"Cow"
+
+	},
+
+	{
+
+		"name":"Rousie",
+
+		"state":"SLEEPING",
+
+		"type":"Cow"
+
+	},
+
+	{
+
+		"name":"FOX",
+
+		"state":"IDLE",
+
+		"type":"Fox"
+
+	},
+
+	{
+
+		"name":"Andy",
+
+		"state":"SLEEPING",
+
+		"type":"Panda"
+
+	},
+
+	{
+
+		"name":"Louis",
+
+		"state":"SLEEPING",
+
+		"type":"Cow"
+
+	},
+
+	{
+
+		"name":"Angie",
+
+		"state":"SLEEPING",
+
+		"type":"Cow"
+
+	},
+
+	{
+
+		"name":"Говрюша",
+
+		"state":"SLEEPING",
+
+		"type":"Cow"
+
+	},
+
+	{
+
+		"name":"Серый",
+
+		"state":"IDLE",
+
+		"type":"Wolf"
+
+	}
+
+]
