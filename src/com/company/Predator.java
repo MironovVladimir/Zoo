@@ -1,43 +1,41 @@
 package com.company;
 
-public abstract class Predator implements Living{
-
-    int state;
+public abstract class Predator extends Animal{
     final static int CAGE = 1;
     final static int IDLE = 0;
     final static int SLEEPING = 1;
     final static int SCREAMING = 2;
-    String name;
 
-    Predator(String name, String state){
-        if(state.equals("SLEEPING")) this.state = Predator.SLEEPING;
-        else if(state.equals("SCREAMING")) this.state = Predator.SCREAMING;
-        else this.state = Predator.IDLE;
-        this.name = name;
+    Predator(String name) {
+        super(name);
     }
 
-    Predator(String name){
-        this.name = name;
-        this.state = Predator.IDLE;
+    Predator(String name, String state) {
+        super(name, state);
     }
 
-    private int eat() {
-        state = IDLE;
-        return state;
+    @Override
+    public boolean isPredator() {
+        return true;
     }
 
-    private int sleep() {
-        state = SLEEPING;
-        return state;
+    @Override
+    public int getIntState(String state) {
+        switch (state) {
+            case "Idle" : return 0;
+            case "Sleeping" : return 1;
+            case "Screaming" : return 2;
+        }
+        return 3;
     }
 
-    abstract public int scream();
-
+    @Override
     public int reactOn(boolean predatorsScream, boolean herbivorousScream, boolean storm, int supervisor, boolean isNight, int food) {
-        if(food==CAGE) this.eat();
-        else if(herbivorousScream||storm||(supervisor==CAGE)||(state==SCREAMING)) return this.scream();
+        if(food==1) this.eat();
+        else if(herbivorousScream||storm||(supervisor==1)||(getCurrentState()==getIntState("Screaming"))) return this.scream();
         else if(isNight) this.sleep();
-        else state = IDLE;
-        return this.state;
+        else setCurrentState(getIntState("Idle"));
+        return currentState;
     }
+
 }

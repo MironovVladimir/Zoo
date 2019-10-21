@@ -1,36 +1,22 @@
 package com.company;
 
-public class Wolf extends Predator{
+public class Wolf extends Predator {
 
-    static private String type = "Wolf";
-    static private String noise = "awooo";
-
-    Wolf(String name, String state){
-        super(name, state);
-    }
-
-    Wolf(String name){
+    Wolf(String name) {
         super(name);
     }
 
-    public int scream() {
-        state = SCREAMING;
-        System.out.println(type + " " + name + ": " + noise);
-        return state;
+    Wolf(String name, String state) {
+        super(name, state);
     }
 
+    @Override
     public String getType() {
-        return type;
+        return "Wolf";
     }
 
-    public String getState(){
-        if(state==IDLE) return "IDLE";
-        else if(state==SLEEPING) return "SLEEPING";
-        else if(state == SCREAMING) return "SCREAMING";
-        return "IDLE";
-    }
-
-    public String getName(){
-        return name;
+    @Override
+    String getNoise() {
+        return "AWOOOOOO";
     }
 }

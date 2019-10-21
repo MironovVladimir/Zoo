@@ -58,7 +58,5 @@ public class ZooTest {
         assertFalse(test.herbivorousNoise&&test.predatorsNoise);
 
         test.loadTo("data.txt");
-
     }
-
 }

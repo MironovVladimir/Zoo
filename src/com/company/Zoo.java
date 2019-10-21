@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.*;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -16,6 +17,7 @@ class Zoo {
     private int iterations =0;
 
     private LinkedList<Living> animals;
+    private Factory factory = new Factory();
 
     Zoo(){
         animals = new LinkedList<>();
@@ -39,23 +41,8 @@ class Zoo {
                 line = reader.readLine();
             }
             System.out.println(json);
-            for(Token t : JacksonParses.Parse(json.toString())){
-                switch (t.type.toLowerCase()) {
-                    case "wolf":
-                        animals.add(new Wolf(t.name, t.state));
-                        break;
-                    case "cow":
-                        animals.add(new Cow(t.name, t.state));
-                        break;
-                    case "fox":
-                        animals.add(new Fox(t.name, t.state));
-                        break;
-                    case "panda":
-                        animals.add(new Panda(t.name, t.state));
-                        break;
-                }
-            }
-        } catch(IOException e){
+            for(Token t : JacksonParses.Parse(json.toString())) this.add(factory.create(t));
+        } catch(IOException | InstantiationException | InvocationTargetException | NoSuchMethodException | IllegalAccessException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }
@@ -93,7 +80,7 @@ class Zoo {
             bw.write("\t{\n"+ls);
             String n = l.getName();
             String t = l.getType();
-            String s = l.getState();
+            String s = l.getStrState();
             bw.write("\t\t\"name\":\""+n+"\",\n"+ls);
             bw.write("\t\t\"state\":\""+s+"\",\n"+ls);
             bw.write("\t\t\"type\":\""+t+"\"\n"+ls);

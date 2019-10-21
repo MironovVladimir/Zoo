@@ -12,6 +12,6 @@ public class PredatorTest {
     int c = a.reactOn(false, false,true, 0
     , false, 0);
     assertEquals(c, Predator.SCREAMING);
-    assertEquals(a.state, Predator.SCREAMING);
+    assertEquals(a.getCurrentState(), Predator.SCREAMING);
     }
 }

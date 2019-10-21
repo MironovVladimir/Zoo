@@ -1,38 +1,21 @@
 package com.company;
 
-
-
-public class Panda extends Herbivorous{
-    static private String type = "Panda";
-    static private String noise = "-____-";
-
-    Panda(String name){
+public class Panda extends Herbivorous {
+    Panda(String name) {
         super(name);
     }
 
+    Panda(String name, String state) {
+        super(name, state);
+    }
+
     @Override
-    public int scream() {
-        state = SCREAMING;
-        System.out.println(type + " " + name + ": " + noise);
-        return state;
-    }
-
-    Panda(String name, String type){
-        super(name,type);
-    }
-
     public String getType() {
-        return type;
+        return "Panda";
     }
 
-    public String getState(){
-        if(state==IDLE) return "IDLE";
-        else if(state==SLEEPING) return "SLEEPING";
-        else if(state == SCREAMING) return "SCREAMING";
-        return "IDLE";
-    }
-
-    public String getName(){
-        return name;
+    @Override
+    String getNoise() {
+        return "*______*";
     }
 }
